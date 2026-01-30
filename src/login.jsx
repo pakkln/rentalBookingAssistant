@@ -11,10 +11,10 @@ function Login({setPage,setUser}){
 
         setUser({
             instagram,
-            verified: instagram === "returning_user",
+            verified: instagram === "oldUser",
         });
 
-        if(instagram === "returning_user"){
+        if(instagram === "oldUser"){
             setPage("dresses");
         }else{
             setPage("verify");
@@ -22,21 +22,34 @@ function Login({setPage,setUser}){
     }
 
     return(
-        <div style={{padding:"20px"}}>
-            <h1>Log In / Register</h1>
 
-            <input placeholder="Instagram Username"
-            value={instagram}
-            onChange={(e)=>setInstagram(e.target.value)}/>
+    <div className="min-h-screen bg-[#e8e8e8] flex items-center justify-center px-6">
+      
+        <div className="bg-[#ffffff] w-[560px] sm:w-[640px] rounded-[24px] px-6 py-10 flex flex-col">
 
-            <br></br>
+            <div className="flex justify-center">
+                <h1>Log In / Register</h1>
+            </div>
 
-            <button onClick={handleContinue}>Continue</button>
+            <div className="flex justify-center">
+                <input placeholder="Instagram Username"
+                value={instagram}
+                onChange={(e)=>setInstagram(e.target.value)}/>
+            </div>
 
-            <p style={{fontSize:"12px", marginTop:"10px"}}> 
-                * Type <b>returning_user</b> to simulate a returning customer
-            </p>
+                <br></br>
+
+            <div className="flex justify-center">
+                <button onClick={handleContinue}>Continue</button>
+            </div>
+
+            <div className="flex justify-center">
+                <p style={{fontSize:"12px", marginTop:"10px"}}> 
+                    * Type <b>oldUser</b> to simulate a returning customer
+                </p>
+            </div>
         </div>
+    </div>
     );
 }
 

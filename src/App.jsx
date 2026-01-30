@@ -2,7 +2,7 @@ import { useState } from 'react'
 import HowToRent from './HowToRent'
 import Login from './login'
 import Verify from './Verify'
-import './App.css'
+/*import './App.css'*/
 import Dresses from './Dresses'
 import DressDetail from './DressDetail'
 import Policy from './Policy'

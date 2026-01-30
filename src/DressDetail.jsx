@@ -27,98 +27,120 @@ function DressDetail({ selectedDress, setPage, setRentalPeriod, setCustomerInfo 
   }
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h1>Dress Detail</h1>
+    <div className="min-h-screen flex justify-center px-5 py-6">
+      <div className="w-full max-w-[700px]">
+        <h1 className="text-2xl font-bold mb-4 flex justify-center">Dress Detail</h1>
 
-      {!selectedDress && <p>No dress selected</p>}
+        {!selectedDress && (
+          <p>No dress selected</p>
+        )}
 
-      {selectedDress && (
-        <>
-          <img
-            src={selectedDress.image}
-            style={{
-              width: "300px",
-              height: "400px",
-              objectFit: "cover",
-              display: "block",
-              marginBottom: "20px"
-            }}
-          />
+        {selectedDress && (
+          <>
+            <img
+              src={selectedDress.image}
+              className="w-[300px] h-[400px] object-cover block mx-auto mb-5"
+            />
 
-          <h2>{selectedDress.name}</h2>
+            <h2 className="text-xl font-semibold mb-2">
+              {selectedDress.name}
+            </h2>
 
-          <hr />
+            <hr className="my-4" />
 
-          <label>
-            Receive date
-            <br />
-            <input type="date" value={receiveDate}
-              onChange={(e) => setReceiveDate(e.target.value)} />
-          </label>
+            <label className="block mb-4">
+              <span className="block mb-1">Receive date</span>
+              <input
+                type="date"
+                value={receiveDate}
+                onChange={(e) => setReceiveDate(e.target.value)}
+                className="border border-gray-300 rounded-md px-3 py-2 w-full"
+              />
+            </label>
 
-          <br /><br />
+            <br/> 
 
-          <label>
-            Return date
-            <br />
-            <input type="date" value={returnDate}
-              onChange={(e) => setReturnDate(e.target.value)} />
-          </label>
+            <label className="block mb-4">
+              <span className="block mb-1">Return date</span>
+              <input
+                type="date"
+                value={returnDate}
+                onChange={(e) => setReturnDate(e.target.value)}
+                className="border border-gray-300 rounded-md px-3 py-2 w-full"
+              />
+            </label>
 
-          <br /><br />
+            <br/>
 
-          <label>
-            Instagram username
-            <br />
-            <input type="text" value={instagram}
-              onChange={(e) => {
-                setInstagram(e.target.value)
-                setCustomerInfo(prev => ({
-                  ...prev,
-                  instagram: e.target.value
-                }))
-              }} />
-          </label>
+            <label className="block mb-4">
+              <span className="block mb-1">Instagram username</span>
+              <input
+                type="text"
+                value={instagram}
+                onChange={(e) => {
+                  setInstagram(e.target.value);
+                  setCustomerInfo(prev => ({
+                    ...prev,
+                    instagram: e.target.value
+                  }));
+                }}
+                className="border border-gray-300 rounded-md px-3 py-2 w-full"
+              />
+            </label>
 
-          <br /><br />
+            <br/> 
 
-          <label>
-            Delivery address
-            <br />
-            <textarea rows="3" value={address}
-              onChange={(e) => {
-                setAddress(e.target.value)
-                setCustomerInfo(prev => ({
-                  ...prev,
-                  address: e.target.value
-                }))
-              }} />
-          </label>
+            <label className="block mb-4">
+              <span className="block mb-1">Delivery address</span>
+              <textarea
+                rows="3"
+                value={address}
+                onChange={(e) => {
+                  setAddress(e.target.value);
+                  setCustomerInfo(prev => ({
+                    ...prev,
+                    address: e.target.value
+                  }));
+                }}
+                className="border border-gray-300 rounded-md px-3 py-2 w-full resize-none"
+              />
+            </label>
 
-          <br /><br />
+            <br/> 
+          <div className="flex justify-center">
+            <button
+              onClick={checkAvailability}
+              className="bg-[#000000] text-[#ffffff] rounded-[23px] rounded-md py-2 px-4 hover:opacity-90"
+            >
+              Check availability
+            </button>
+          </div>
 
-          <button onClick={checkAvailability}>
-            Check availability
-          </button>
+            {isAvailable === true && (
+              <>
+                <div className="flex justify-center">
+                <p className="text-[#00B802] mt-4">Dress available</p>
+                </div>
 
-          <br /><br />
-
-          {isAvailable === true && (
-            <>
-              <p style={{ color: "green" }}>Dress available</p>
-              <button onClick={() => {
-                setRentalPeriod({
-                  receive: receiveDate,
-                  return: returnDate
-                })
-                setPage("policy")
-              }}>
-                Book
-              </button>
-            </>
-          )}
-        </>
-      )}
+                <div className="flex justify-center">
+                <button
+                  onClick={() => {
+                    setRentalPeriod({
+                      receive: receiveDate,
+                      return: returnDate
+                    });
+                    setPage("policy");
+                  }}
+                  className="bg-[#000000] text-[#ffffff] rounded-[23px] rounded-md py-2 px-4 hover:opacity-90"
+                >
+                  Book
+                </button>
+                </div>
+              </>
+            )}
+          </>
+        )}
+      </div>
     </div>
   );
 }

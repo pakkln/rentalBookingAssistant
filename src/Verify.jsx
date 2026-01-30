@@ -4,29 +4,46 @@ function Verify({setPage}){
     }
 
     return(
-        <div style={{padding:"20px"}}>
-            <h1>Verification</h1>
+        <div className="min-h-screen bg-[#e8e8e8] flex items-center justify-center px-6">
+      
+            <div className="bg-[#ffffff] w-[560px] sm:w-[640px] rounded-[24px] px-6 py-10 flex flex-col">
+                <div className="flex justify-center">
+                    <h1>Verification</h1>
+                </div>
 
-            <p>Please upload your document here</p>
+                <div className="flex justify-center">
+                    <p>Please upload your document here</p>
+                </div>
 
-            <label>
-                ID card with signature(pdf):
-                <br />
-                <input type="file" />
-            </label>
+                <div className="flex justify-center">
+                    <label>
+                        ID card with signature(pdf):
+                        <br />
+                        <input type="file" />
+                    </label>
 
-            <br /><br />
+                </div>
 
-            <label>
-                Agreement document(pdf):
-                <br />
-                <input type="file" />
-            </label>
+                    <br /><br />
 
-            <br /><br />
+                <div className="flex justify-center">
 
-            <button onClick={handleVerify}>Verify Account</button>
+                    <label>
+                        Agreement document(pdf):
+                        <br />
+                        <input type="file" />
+                    </label>
+                </div>
 
+                    <br /><br />
+
+                    <div className="flex justify-center">
+                    <button onClick={handleVerify}>Verify Account</button>
+                    
+                    </div>
+
+                <br /><br />
+            </div>
         </div>
     );
 }

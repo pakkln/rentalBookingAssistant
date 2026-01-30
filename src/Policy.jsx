@@ -15,8 +15,13 @@ function Policy({setPage}){
     }
 
     return(
-        <div>
+    <div className="min-h-screen bg-[#e8e8e8] flex items-center justify-center px-6">
+      
+      <div className="bg-[#ffffff] w-[700px] sm:w-[800px] rounded-[24px] px-6 py-10 border-[40px] border-[#ffffff]">
+            <div className="flex justify-center">
             <h1>Rental Policy</h1>
+            </div>
+            
             <h3>Please kindly read every policy throughly.</h3>
             <h3>By checking the box, this imply that you have agree to follow all of our policy.</h3>
 
@@ -54,11 +59,15 @@ function Policy({setPage}){
             </label>
 
             <br /><br />
+
+            <div className="flex justify-center">
             <button disabled={!allChecked} onClick={()=>setPage("summary")}>
                 confirm Booking
             </button>
+            </div>
             
         </div>
+     </div>
     );
 }
 
