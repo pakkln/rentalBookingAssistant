@@ -24,6 +24,30 @@ function Dresses({setPage, setSelectedDress}){
             price: 700,
             image: "/dress4.jpg",
         },
+        {
+            id: 5,
+            name: "Mora Dress",
+            price: 490,
+            image: "/dress5.jpg",
+        },
+        {
+            id: 6,
+            name: "Claudiene Dress",
+            price: 600,
+            image: "/dress6.jpg",
+        },
+        {
+            id: 7,
+            name: "Jaquime Dress",
+            price: 590,
+            image: "/dress7.jpg",
+        },
+        {
+            id: 8,
+            name: "Babyblue Dress",
+            price: 700,
+            image: "/dress8.jpg",
+        },
 
     ];
 
@@ -65,7 +89,7 @@ function Dresses({setPage, setSelectedDress}){
                             </p>
 
                             <p style={{margin: "4px 0 0 0"}}>
-                                {dress.price.toLocaleString()} THB
+                                {dress.price.toLocaleString()} THB per day
                             </p>
                         </div>
                     </div>
