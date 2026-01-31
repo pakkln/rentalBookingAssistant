@@ -30,6 +30,18 @@ function DressDetail({ selectedDress, setPage, setRentalPeriod, setCustomerInfo 
   return (
     <div className="min-h-screen flex justify-center px-5 py-6">
       <div className="w-full max-w-[700px]">
+        <button
+        onClick={() => setPage("dresses")}
+        style={{
+          marginBottom: "12px",
+          background: "none",
+          border: "none",
+          fontSize: "16px",
+          cursor: "pointer",
+        }}
+      >
+        ← Back
+      </button>
         <h1 className="text-2xl font-bold mb-4 flex justify-center">Dress Detail</h1>
 
         {!selectedDress && (
