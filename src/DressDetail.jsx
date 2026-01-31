@@ -8,6 +8,12 @@ function DressDetail({ selectedDress, setPage, setRentalPeriod, setCustomerInfo 
   const [address, setAddress] = useState("");
 
   function checkAvailability() {
+
+    if (!receiveDate || !returnDate) {
+      alert("Please select both receive and return date");
+      return;
+    }
+
     if (!instagram) {
       alert("Please enter Instagram username");
       return;
@@ -15,11 +21,6 @@ function DressDetail({ selectedDress, setPage, setRentalPeriod, setCustomerInfo 
 
     if (!address) {
       alert("Please enter address");
-      return;
-    }
-
-    if (!receiveDate || !returnDate) {
-      alert("Please select both receive and return date");
       return;
     }
 

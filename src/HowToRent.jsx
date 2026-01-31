@@ -4,9 +4,15 @@ function HowToRent({ setPage }) {
       
       <div className="bg-[#ffffff] w-[560px] sm:w-[640px] rounded-[24px] px-6 py-10">
         
-        <h1 className="text-4xl font-calligraphy text-[#000000] text-center">
-          how to rent
-        </h1>
+        <div className="flex justify-center">
+            <div className="inline-block text-center">
+              <h1 className="text-4xl font-calligraphy text-[#000000]">
+                how to rent
+              </h1>
+              <hr className="mt-2 border-black" />
+            </div>
+          </div>
+
 
 
         <div className="flex justify-center">
