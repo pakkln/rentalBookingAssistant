@@ -42,7 +42,9 @@ function DressDetail({ selectedDress, setPage, setRentalPeriod, setCustomerInfo 
       >
         ← Back
       </button>
-        <h1 className="text-2xl font-bold mb-4 flex justify-center">Dress Detail</h1>
+        <h1 className="text-2xl mb-4 flex justify-center font-serif font-bold text-2xl">Dress Detail</h1>
+
+        <br/>
 
         {!selectedDress && (
           <p>No dress selected</p>
@@ -52,10 +54,10 @@ function DressDetail({ selectedDress, setPage, setRentalPeriod, setCustomerInfo 
           <>
             <img
               src={selectedDress.image}
-              className="w-[300px] h-[400px] object-cover block mx-auto mb-5"
+              className="w-[300px] h-[400px] object-cover block mx-auto mb-5 rounded-lg"  
             />
 
-            <h2 className="text-xl font-semibold mb-2">
+            <h2 className="text-xl font-serif font-bold mb-2">
               {selectedDress.name}
             </h2>
 
@@ -120,14 +122,15 @@ function DressDetail({ selectedDress, setPage, setRentalPeriod, setCustomerInfo 
             </label>
 
             <br/> 
-          <div className="flex justify-center">
+          <div className="flex justify-center gap-4">
             <button
               onClick={checkAvailability}
-              className="bg-[#000000] text-[#ffffff] rounded-[23px] rounded-md py-2 px-4 hover:opacity-90"
+              className="bg-[#EDE1D7] text-[#B16848] text-sm font-bold px-3 py-2 rounded-[23px] border-none"
             >
               Check availability
             </button>
-          </div>
+
+            <hr/>
 
             {isAvailable === true && (
               <>
@@ -151,6 +154,9 @@ function DressDetail({ selectedDress, setPage, setRentalPeriod, setCustomerInfo 
                 </div>
               </>
             )}
+          </div>
+
+            
           </>
         )}
       </div>

@@ -4,22 +4,26 @@ function Verify({setPage}){
     }
 
     return(
-        <div className="min-h-screen bg-[#e8e8e8] flex items-center justify-center px-6">
+        <div className="min-h-screen bg-[url('/homebg.png')] bg-cover bg-center flex items-center justify-center px-6">
       
             <div className="bg-[#ffffff] w-[560px] sm:w-[640px] rounded-[24px] px-6 py-10 flex flex-col">
                 <div className="flex justify-center">
-                    <h1>Verification</h1>
+                    <h1 className="font-title text-6xl">Verification</h1>
                 </div>
 
                 <div className="flex justify-center">
                     <p>Please upload your document here</p>
                 </div>
 
+                <br /><br />
+
                 <div className="flex justify-center">
                     <label>
                         ID card with signature(pdf):
                         <br />
-                        <input type="file" />
+                        <input type="file"
+                         className="bg-[#FFF9E0] file:rounded-full file:bg-[#8B5A2B] file:text-white file:border-none"
+                        />
                     </label>
 
                 </div>
@@ -31,14 +35,17 @@ function Verify({setPage}){
                     <label>
                         Agreement document(pdf):
                         <br />
-                        <input type="file" />
+                        <input type="file" 
+                        className="bg-[#FFF9E0] file:rounded-full file:bg-[#8B5A2B] file:text-white file:border-none"/>
                     </label>
                 </div>
 
                     <br /><br />
 
                     <div className="flex justify-center">
-                    <button onClick={handleVerify}>Verify Account</button>
+                    <button onClick={handleVerify}
+                        className="bg-[#EDE1D7] text-[#B16848] text-sm font-bold px-3 py-2 rounded-[23px] border-none font-serif"
+                    >submit file</button>
                     
                     </div>
 

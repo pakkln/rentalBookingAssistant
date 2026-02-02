@@ -17,16 +17,21 @@ function Dresses({ setPage, setSelectedDress }) {
 
   return (
     <div style={{ padding: "16px", maxWidth: "1200px", margin: "0 auto" }}>
-      
+      <img
+      src="/Banner.png"
+      className="w-full h-[300px] object-cover"
+    />
       
 
-      <h1 style={{ marginBottom: "16px" }}>Browse Dress</h1>
+      <h1 style={{ marginBottom: "16px" }} className="font-serif text-4xl">Browse Dress</h1>
+
+      <br/> <br/>
 
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))",
-          gap: "16px",
+          gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+          gap: "0px",
         }}
       >
         {dresses.map((dress) => (
@@ -35,7 +40,7 @@ function Dresses({ setPage, setSelectedDress }) {
             onClick={() => handleSelectedDress(dress)}
             style={{
               cursor: "pointer",
-              border: "1px solid black",
+              border: "0.5px solid black",
             }}
           >
             <img
@@ -48,10 +53,10 @@ function Dresses({ setPage, setSelectedDress }) {
             />
 
             <div style={{ padding: "10px" }}>
-              <p style={{ margin: "0", fontWeight: "bold" }}>
+              <p style={{ margin: "0", fontWeight: "bold" }} className="font-serif font-bold">
                 {dress.name}
               </p>
-              <p style={{ margin: "4px 0 0 0" }}>
+              <p style={{ margin: "4px 0 0 0" }} className="text-sm">
                 {dress.price.toLocaleString()} THB per day
               </p>
             </div>
