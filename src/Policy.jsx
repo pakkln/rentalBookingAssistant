@@ -15,18 +15,24 @@ function Policy({setPage}){
     }
 
     return(
-    <div className="min-h-screen bg-[#e8e8e8] flex items-center justify-center px-6">
+    <div className="min-h-screen bg-[url('/homebg.png')] flex items-center justify-center px-6">
       
       <div className="bg-[#ffffff] w-[700px] sm:w-[800px] rounded-[24px] px-6 py-10 border-[40px] border-[#ffffff]">
-            <div className="flex justify-center">
+            <div className="font-title text-6xl  flex justify-center">
             <h1>Rental Policy</h1>
             </div>
             
-            <h3>Please kindly read every policy throughly.</h3>
-            <h3>By checking the box, this imply that you have agree to follow all of our policy.</h3>
+            <h3 className="text-sm text-[#737373]">Please kindly read every policy throughly.</h3>
+            <h3 className="text-sm text-[#737373]">By checking the box, this imply that you have agree to follow all of our policy.</h3>
+
+            <br/>
+
+            <hr/>
+
+            <br/>
 
             <label>
-                <input type="checkbox" onChange={()=>toggle("p1")}/>
+                <input type="checkbox" onChange={()=>toggle("p1")} />
                 I acknowledge that I have to pay the delivery fee by myself.
             </label>
 
@@ -60,9 +66,10 @@ function Policy({setPage}){
 
             <br /><br />
 
-            <div className="flex justify-center">
-            <button disabled={!allChecked} onClick={()=>setPage("summary")}>
-                confirm Booking
+            <div className="flex justify-center ">
+            <button disabled={!allChecked} onClick={()=>setPage("summary")} 
+                className="bg-[#EDE1D7] text-[#B16848] text-sm font-bold px-3 py-2 rounded-[23px] border-none hover:scale-105">
+                confirm booking
             </button>
             </div>
             
