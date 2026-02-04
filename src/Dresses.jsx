@@ -1,4 +1,8 @@
-function Dresses({ setPage, setSelectedDress }) {
+import { useNavigate } from "react-router-dom";
+
+function Dresses({ setSelectedDress }) {
+  const navigate = useNavigate();
+
   const dresses = [
     { id: 1, name: "Peony Scarf Dress", price: 690, image: "/dress1.jpg" },
     { id: 2, name: "Sylvia Dress", price: 450, image: "/dress2.jpg" },
@@ -12,51 +16,35 @@ function Dresses({ setPage, setSelectedDress }) {
 
   function handleSelectedDress(dress) {
     setSelectedDress(dress);
-    setPage("detail");
+    navigate("/detail");
   }
 
   return (
-    <div style={{ padding: "16px", maxWidth: "1200px", margin: "0 auto" }}>
+    <div className="p-4 max-w-[1200px] mx-auto">
       <img
-      src="/Banner.png"
-      className="w-full h-[300px] object-cover"
-    />
-      
+        src="/Banner.png"
+        className="w-full h-[300px] object-cover"
+        alt="Banner"
+      />
 
-      <h1 style={{ marginBottom: "16px" }} className="font-serif text-4xl">Browse Dress</h1>
+      <h1 className="font-serif text-4xl mt-6 mb-6">Browse Dress</h1>
 
-      <br/> <br/>
-
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
-          gap: "0px",
-        }}
-      >
+      <div className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-px">
         {dresses.map((dress) => (
           <div
             key={dress.id}
             onClick={() => handleSelectedDress(dress)}
-            style={{
-              cursor: "pointer",
-              border: "0.5px solid black",
-            }}
+            className="cursor-pointer border border-black"
           >
             <img
               src={dress.image}
-              style={{
-                width: "100%",
-                aspectRatio: "3 / 4",
-                objectFit: "cover",
-              }}
+              className="w-full aspect-[3/4] object-cover"
+              alt={dress.name}
             />
 
-            <div style={{ padding: "10px" }}>
-              <p style={{ margin: "0", fontWeight: "bold" }} className="font-serif font-bold">
-                {dress.name}
-              </p>
-              <p style={{ margin: "4px 0 0 0" }} className="text-sm">
+            <div className="p-3">
+              <p className="font-serif font-bold">{dress.name}</p>
+              <p className="text-sm">
                 {dress.price.toLocaleString()} THB per day
               </p>
             </div>

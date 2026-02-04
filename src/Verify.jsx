@@ -1,3 +1,5 @@
+import {Link} from "react-router-dom"
+
 function Verify({setPage}){
     function handleVerify(){
         setPage("dresses");
@@ -43,9 +45,7 @@ function Verify({setPage}){
                     <br /><br />
 
                     <div className="flex justify-center">
-                    <button onClick={handleVerify}
-                        className="bg-[#EDE1D7] text-[#B16848] text-sm font-bold px-3 py-2 rounded-[23px] border-none font-serif"
-                    >submit file</button>
+                    <Link to="/dresses" className="bg-[#EDE1D7] text-[#B16848] font-bold px-6 py-3 rounded-[23px] font-serif">submit file</Link>
                     
                     </div>
 

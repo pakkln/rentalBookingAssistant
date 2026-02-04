@@ -1,4 +1,9 @@
+import { useNavigate } from "react-router-dom";
+
 function Summary({ selectedDress, rentalPeriod, setPage, customerInfo }) {
+
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen flex justify-center px-5 py-6 bg-[#FFFCF0] rounded-ml">
       <div className="w-full max-w-[600px] bg-white rounded-xl shadow-md p-6">
@@ -47,7 +52,7 @@ function Summary({ selectedDress, rentalPeriod, setPage, customerInfo }) {
               </p>
 
               <button
-                onClick={() => setPage("howToRent")}
+                onClick={() => navigate("/howToRent")}
                 className="bg-black text-white rounded-md px-6 py-2 hover:opacity-90 transition"
               >
                 Back to Home

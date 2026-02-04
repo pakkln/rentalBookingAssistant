@@ -1,11 +1,21 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-function DressDetail({ selectedDress, setPage, setRentalPeriod, setCustomerInfo }) {
+function DressDetail({ selectedDress, setRentalPeriod, setCustomerInfo }) {
+  const navigate = useNavigate();
+
   const [receiveDate, setReceiveDate] = useState("");
   const [returnDate, setReturnDate] = useState("");
   const [isAvailable, setIsAvailable] = useState(null);
   const [instagram, setInstagram] = useState("");
   const [address, setAddress] = useState("");
+
+  if(!selectedDress){
+    return(
+      <div className="min-h-screen flex items-center justify-center">
+        No dress selected. Please return to the dresses page to choose a dress.</div>
+    );
+  }
 
   function checkAvailability() {
 
@@ -31,7 +41,7 @@ function DressDetail({ selectedDress, setPage, setRentalPeriod, setCustomerInfo 
     <div className="min-h-screen flex justify-center px-5 py-6">
       <div className="w-full max-w-[700px]">
         <button
-        onClick={() => setPage("dresses")}
+        onClick={() => navigate("/dresses")}
         style={{
           marginBottom: "12px",
           background: "none",
@@ -46,9 +56,6 @@ function DressDetail({ selectedDress, setPage, setRentalPeriod, setCustomerInfo 
 
         <br/>
 
-        {!selectedDress && (
-          <p>No dress selected</p>
-        )}
 
         {selectedDress && (
           <>
@@ -130,6 +137,10 @@ function DressDetail({ selectedDress, setPage, setRentalPeriod, setCustomerInfo 
               Check availability
             </button>
 
+            <div className="flex justify-center">
+                <p className="text-black mt-4">status: </p>
+                </div>
+
             <hr/>
 
             {isAvailable === true && (
@@ -145,7 +156,7 @@ function DressDetail({ selectedDress, setPage, setRentalPeriod, setCustomerInfo 
                       receive: receiveDate,
                       return: returnDate
                     });
-                    setPage("policy");
+                    navigate("/policy");
                   }}
                   className="bg-[#000000] text-[#ffffff] rounded-[23px] rounded-md py-2 px-4 hover:opacity-90"
                 >

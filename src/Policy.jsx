@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 function Policy({setPage}){
     const [checks, setChecks] = useState({
         p1:false, p2:false, p3:false, p4:false, p5: false,
     });
 
     const allChecked=Object.values(checks).every(v=>v===true);
+    const navigate = useNavigate();
 
     function toggle(key){
         setChecks({
@@ -32,43 +34,50 @@ function Policy({setPage}){
             <br/>
 
             <label>
-                <input type="checkbox" onChange={()=>toggle("p1")} />
+                <input type="checkbox" checked={checks.p1} onChange={()=>toggle("p1")} />
                 I acknowledge that I have to pay the delivery fee by myself.
             </label>
 
             <br /><br />
 
             <label>
-                <input type="checkbox" onChange={()=>toggle("p2")}/>
+                <input type="checkbox" checked={checks.p2} onChange={()=>toggle("p2")}/>
                 The dress have to be return by 14:00 o'clock of the return date.
             </label>
 
             <br /><br />
 
             <label>
-                <input type="checkbox" onChange={()=>toggle("p3")}/>
+                <input type="checkbox" checked={checks.p3} onChange={()=>toggle("p3")}/>
                 Customer is responsible for any damage.
             </label>
 
             <br /><br />
 
             <label>
-                <input type="checkbox" onChange={()=>toggle("p4")}/>
+                <input type="checkbox" checked={checks.p4} onChange={()=>toggle("p4")}/>
                 Deposit will not be refunded if policy is violated.
             </label>
 
             <br /><br />
 
             <label>
-                <input type="checkbox" onChange={()=>toggle("p5")}/>
+                <input type="checkbox" checked={checks.p5} onChange={()=>toggle("p5")}/>
                 No cancellation within the rental period.
             </label>
 
             <br /><br />
 
             <div className="flex justify-center ">
-            <button disabled={!allChecked} onClick={()=>setPage("summary")} 
-                className="bg-[#EDE1D7] text-[#B16848] text-sm font-bold px-3 py-2 rounded-[23px] border-none hover:scale-105">
+            <button disabled={!allChecked} onClick={()=>navigate("/summary")} 
+                className={`text-sm font-bold px-4 py-2 rounded-[23px] transition
+                    ${
+                allChecked 
+                ? "bg-[#EDE1D7] text-[#B16848] hover:scale-105 cursor-pointer"
+                : "bg-gray-200 text-gray-400 cursor-not-allowed"
+                }
+                `}
+            >
                 confirm booking
             </button>
             </div>
